@@ -1,6 +1,7 @@
 import {useState, useEffect, useRef} from "react";
-import ReactQuill from 'react-quill';
 import {Button} from 'react-bootstrap';
+import dynamic from 'next/dynamic';
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
 // import '../styles/textbox.css';
 
