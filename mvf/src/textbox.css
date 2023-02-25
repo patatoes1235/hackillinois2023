@@ -1,0 +1,69 @@
+/* textbox toolbar styling */
+.material-icons {
+    color: #444444;
+    font-size: 18px;
+}
+.hidden {
+    display: none !important;
+}
+.toolbar-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.expand-button {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+}
+.ql-formats {
+    margin-right: 8px !important;
+}
+.ql-formats.collapsed {
+    display: none !important;
+}
+.ql-formats:not(.leftmost)::before {
+    content: '|';
+    padding: 0 8px 0 0;
+    color: #ccc;
+    float: left;
+}
+.ql-picker-label.ql-active,
+.ql-picker-label.ql-active * {
+    color: #444 !important;
+    stroke: #444 !important;
+}
+
+/* tooltips */
+.tooltipped {
+    position: relative;
+}
+.tooltipped:hover::before, .tooltipped:focus::before {
+    content: '';
+    position: absolute;
+    top: -25%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    border: .5em solid transparent;
+    border-top-color: black;
+    z-index: 2;
+    overflow: visible;
+    font-size: .85em;
+}
+.tooltipped:hover::after, .tooltipped:focus::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: .3em;
+    border-radius: .2em;
+    z-index: 2;
+    overflow: visible;
+    font-size: .85em;
+}
