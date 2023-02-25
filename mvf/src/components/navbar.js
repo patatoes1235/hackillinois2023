@@ -6,12 +6,12 @@ function NavBar() {
     return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">MVF Framework</Navbar.Brand>
+        <Navbar.Brand href="/">MVF Framework</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#Post">Post</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/post">Post</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
