@@ -1,5 +1,5 @@
 import Textbox from '../components/textbox';
-import '@/styles/globals.css'
+// import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from '../components/navbar';
 import '../styles/textbox.css';
