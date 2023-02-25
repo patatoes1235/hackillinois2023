@@ -8,8 +8,8 @@ services:
     hostname: db
     restart: always
     environment:
-      POSTGRES_PASSWORD: admin
-      POSTGRES_USER: admin123
+      POSTGRES_PASSWORD: flyway
+      POSTGRES_USER: flyway
     ports:
       - 5432:5432
     networks:
