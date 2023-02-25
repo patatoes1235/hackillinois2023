@@ -11,8 +11,7 @@ function App({Component, pageProps}) {
         <NavBar />
       </div>
       <div>
-        {/* <Component {...pageProps} /> */}
-        <Textbox />
+        <Component {...pageProps} />
       </div>
     </div>
   );
