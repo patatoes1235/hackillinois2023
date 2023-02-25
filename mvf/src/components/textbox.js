@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from "react";
 import ReactQuill from 'react-quill';
 import {Button} from 'react-bootstrap';
 import 'react-quill/dist/quill.snow.css';
-import '../textbox.css';
+// import '../styles/textbox.css';
 
 const Icon = ({name}) => {
 	return (
