@@ -3,7 +3,7 @@ import 'react-quill/dist/quill.snow.css'
 
 function Textbox() {
 	return (
-		<ReactQuill theme="snow"/>
+		<ReactQuill theme="snow" class/>
 	);
 }
 
