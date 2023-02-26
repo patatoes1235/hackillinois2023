@@ -63,6 +63,15 @@ body * {
 }
 .post {
     background-color: rgb(11, 133, 11);
+    border-color: #00000000;
+}
+.cancel:hover {
+    background-color: rgb(167, 25, 25);
+    border-color: rgb(167, 25, 25);
+}
+.post:hover {
+    background-color: rgb(9, 106, 9);
+    border-color: #00000000;
 }
 input {
     border: 1px solid #ccc;
