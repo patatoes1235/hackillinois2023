@@ -3,6 +3,29 @@ import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 import {Button} from 'react-bootstrap';
 import Toolbar from './toolbar';
+// import useSwr from 'swr';
+
+// const poster = (query) =>
+//   fetch('/api/hello', {
+//     method: 'POST',
+//     headers: {
+//       'Content-type': 'application/json',
+//     },
+//     body: JSON.stringify({ query }),
+//   })
+//     .then((res) => res.json())
+//     .then((json) => json.data);
+// const fetcher = (query) => 
+// 	fetch('/api/hello', 
+// 	{
+// 		method: 'GET', 
+// 		headers: {
+// 			'Content-type': 'application/json',
+// 		},
+// 		body: JSON.stringify({query})
+// 			.then((res) => res.json())
+// 			.then((json => json.data))
+// 	})
 
 // import ReactQuill dynamically
 // required for Next.JS
@@ -38,11 +61,12 @@ const Textbox = () => {
 		'link', 'image', 'video'
 	];
 
-	const post = () => {
+	const post = async() => {
 		// todo upload to db
 		// title is a simple string
 		// text is an HTML string
-		console.log(title);
+		let r = await fetch("http://localhost:3000/api/search");
+		console.log(r.json());
 		console.log(text);
 	}
 

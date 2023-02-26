@@ -4,6 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from '../components/navbar';
 import '../styles/textbox.css';
 
+// Fetch all posts (in /pages/api/posts.ts)
+
+
+
 function App({Component, pageProps}) {
   return (
     <div className="App w-100 h-100">
