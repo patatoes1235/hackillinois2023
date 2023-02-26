@@ -1,19 +1,34 @@
-import {useState} from "react";
+import {useState, useRef} from "react";
 import dynamic from 'next/dynamic';
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
 import {Button} from 'react-bootstrap';
 import Toolbar from './toolbar';
 
+// import ReactQuill dynamically
+// required for Next.JS
+const ReactQuill = dynamic(
+	async () => {
+		const { default: Quill } = await import("react-quill");
+
+		return ({ forwardedRef, ...props }) => <Quill ref={forwardedRef} {...props} />;
+	},
+	{
+		ssr: false
+	}
+);
+
 const Textbox = () => {
 	const [title, setTitle] = useState('');
 	const [text, setText] = useState('');
+	const quill = useRef();
+
 	const modules = {
 		toolbar: {
 			container: '.toolbar-container',
 		},
 		history: {}
 	};
+
 	const formats = [
 		'header',
 		'bold', 'italic', 'underline', 'strike',
@@ -51,7 +66,7 @@ const Textbox = () => {
 						/>
 					</div>
 				</div>
-				<Toolbar/>
+				<Toolbar quill={quill} />
 				<ReactQuill
 					className="my-2 h-100"
 					theme="snow"
@@ -60,6 +75,7 @@ const Textbox = () => {
 					placeholder={"Write post here"}
 					value={text}
 					onChange={setText}
+					forwardedRef={quill}
 				/>
 				<div className="col w-100">
 					<Button className="float-right mx-2" style={{float: "right"}} onClick={post}>Post</Button>
