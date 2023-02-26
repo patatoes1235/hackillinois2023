@@ -46,9 +46,18 @@ async function write(title, content) {
 export default function handler(req, res) {
   if (req.method === "POST") {
     write(req.title, req.content)
+    res.status(200).json({Sucess: "Sucess"});
   } 
   if (req.method === "GET") {
-    
+    if (!req.getAll) {
+      getAll().then((out) => {
+        res.status(201).json(out);
+      });
+    } else {
+      getAll().then((out)=> {
+        res.status(201).json(out);
+      });
+    }
   } 
   res.status(404).json({Text: "HTTP req. not valid"});
 }
