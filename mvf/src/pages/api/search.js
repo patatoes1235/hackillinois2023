@@ -5,40 +5,52 @@ const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient();
 
-async function listen() {
-  const allUsers = await prisma.user.findMany();
+async function getAll() {
+  const allUsers = await prisma.post.findMany({
+    where: {
+      user_id: {
+        gte: 0,
+      }, 
+  },});
   console.log(allUsers);
   return allUsers;
 }
+async function search(term) {
+  const toReturn = await prisma.post.findMany({
+    where: {
+      OR: [{title: {
+                contains: {term}
+              }
+            },
+            {content: {
+                contains: {term}
+              }
+            }]
+    }
+  });
+  return toReturn;
+}
 
-async function write() {
-  await prisma.user.create({
+async function write(title, content) {
+  await prisma.post.create({
     data: {
-      name: 'Alice',
-      email: 'alice@prisma.io',
-      posts: {
-        create: { title: 'Hello World' },
-      },
-      profile: {
-        create: { bio: 'I like turtles' },
-      },
+      user_id: Math.floor(Math.random()*777428),
+      title: title,
+      post_id: Math.floor(Math.random()*9575),
+      content: content,
     },
   });
   console.log("WRITTEN SOMETHING HAPPENED");
 }
 
-async function publish() {
-  const post = await prisma.post.update({
-    where: { id: 1 },
-    data: { published: true },
-  });
-  console.log(post);
-}
-
 export default function handler(req, res) {
-  write();
-  publish();
-  res.status(200).json({Text: "I THINK THIS WORKED?"});
+  if (req.method === "POST") {
+    write(req.title, req.content)
+  } 
+  if (req.method === "GET") {
+    
+  } 
+  res.status(404).json({Text: "HTTP req. not valid"});
 }
 
 // listen()
