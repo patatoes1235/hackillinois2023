@@ -77,7 +77,6 @@ const Textbox = () => {
 	}
 
 	const cancel = () => {
-		//todo remove, replace with commented out line below
 		location.href = "/";
 		// axios.get('/api/search', {
 		// 	params: {
