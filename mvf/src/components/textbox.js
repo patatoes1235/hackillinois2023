@@ -121,7 +121,7 @@ const Textbox = () => {
 						type="text"
 						placeholder="Add your contact info"
 						value={contact}
-						onChange={(ev) => setContant(ev.target.value)}
+						onChange={(ev) => setContact(ev.target.value)}
 					/>
 					<Button className="float-right mx-2 post" style={{float: "right"}} onClick={post}>Post</Button>
 					<Button className="float-right mx-2 cancel" style={{float: "right"}} onClick={cancel}>Cancel</Button>
