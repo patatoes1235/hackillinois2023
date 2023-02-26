@@ -1,16 +1,34 @@
 import {useState} from "react";
 import {Search} from "react-bootstrap-icons";
+import axios from "axios";
 
 const SearchBar = ({setResults}) => {
 	const [keywords, setKeywords] = useState("");
 
-	const search = () => {
-		//todo search db for keywords
-		setResults(keywords); // replace "keywords" with search results
+	const search = async () => {
+		//todo replace "keywords" with response, as array of objects
+		//w/ keys title, content (do not need to remove excess keys)
+		//
+		//see example below
+
+		//let response = await axios.get('/api/search', {
+		//	keyword: keywords,
+		//	getAll: false
+		//});
+
+		const test = [{
+			title: "Hurray",
+			content: `Search for "${keywords}" successful`,
+			excessKeys: "Don't care"
+		}, {
+			title: "This is another post",
+			content: "yayayayayay"
+		}];
+
+		setResults(test);
 	}
 
 	const handleKeyUp = (ev) => {
-		//todo consider searching as the user types, without waiting for enter?
 		if (ev.key === "Enter")
 			search();
 	}

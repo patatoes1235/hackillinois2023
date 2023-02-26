@@ -40,12 +40,6 @@ const Textbox = () => {
 	];
 
 	const post = () => {
-		// todo upload to db
-		// title is a simple string
-		// content is an HTML string
-		//console.log(title);
-		//console.log(content);
-
 		axios.post('/api/search', {
 			title, content
 		}).then((res) => {
@@ -56,10 +50,8 @@ const Textbox = () => {
 	}
 
 	const cancel = () => {
-		// todo go back to previous page
-		//console.log('return');
-
-		//temp
+		//todo remove, replace with commented out line below
+		//location.href = "/";
 		axios.get('/api/search', {
 			keyword: "Kenny",
 			getAll: false
