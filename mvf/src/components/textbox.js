@@ -62,13 +62,7 @@ const Textbox = () => {
 		'link', 'image', 'video'
 	];
 
-	const post = async() => {
-		// todo upload to db
-		// title is a simple string
-		// content is an HTML string
-		console.log(title);
-		console.log(content);
-
+	const post = () => {
 		axios.post('/api/search', {
 			title, content
 		}).then((res) => {
@@ -79,10 +73,8 @@ const Textbox = () => {
 	}
 
 	const cancel = () => {
-		// todo go back to previous page
-		console.log('return');
-
-		//temp
+		//todo remove, replace with commented out line below
+		//location.href = "/";
 		axios.get('/api/search', {
 			params: {
 			keyword: "Kenny",
@@ -101,7 +93,6 @@ const Textbox = () => {
 					<div className="col-4 mb-2">
 						<input
 							className="w-100 post-title"
-							style={{padding: "0.5em", paddingLeft: ".75em"}}
 							type="text"
 							placeholder="Add a post title"
 							value={title}
