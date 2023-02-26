@@ -84,9 +84,10 @@ const Textbox = () => {
 
 		//temp
 		axios.get('/api/search', {
+			params: {
 			keyword: "Kenny",
 			getAll: false
-		}).then((res) => {
+		}}).then((res) => {
 			console.log(res);
 		}).catch((err) => {
 			console.log(err);
