@@ -44,6 +44,8 @@ const Textbox = () => {
 			title, content
 		}).then((res) => {
 			console.log(res);
+			setTitle("");
+			setContent("");
 		}).catch((err) => {
 			console.log(err);
 		});
