@@ -67,3 +67,6 @@
     overflow: visible;
     font-size: .85em;
 }
+.quill img {
+    width: 40%;
+}

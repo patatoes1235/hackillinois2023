@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react"
 import {ArrowClockwise, ArrowCounterclockwise, CaretUp, CaretDown} from "react-bootstrap-icons";
 
-const Toolbar = () => {
+const Toolbar = ({quill}) => {
 	const [expanded, setExpanded] = useState(false);
 	const [showExpand, setShowExpand] = useState(true);
 
@@ -45,13 +45,11 @@ const Toolbar = () => {
 	}
 
 	const undo = () => {
-		//todo make this work
-		//quill.history.undo();
+		quill.current.getEditor().history.undo();
 	}
 
 	const redo = () => {
-		//todo make this work
-		//quill.history.redo();
+		quill.current.getEditor().history.redo();
 	}
 
 	return (
