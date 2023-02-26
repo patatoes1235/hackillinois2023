@@ -1,4 +1,5 @@
 import {useState, useRef} from "react";
+import axios from "axios";
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 import {Button} from 'react-bootstrap';
@@ -44,11 +45,29 @@ const Textbox = () => {
 		// content is an HTML string
 		console.log(title);
 		console.log(content);
+
+		axios.post('/api/search', {
+			title, content
+		}).then((res) => {
+			console.log(res);
+		}).catch((err) => {
+			console.log(err);
+		});
 	}
 
 	const cancel = () => {
 		// todo go back to previous page
 		console.log('return');
+
+		//temp
+		axios.get('/api/search', {
+			keyword: "Kenny",
+			getAll: false
+		}).then((res) => {
+			console.log(res);
+		}).catch((err) => {
+			console.log(err);
+		});
 	}
 
 	return (
