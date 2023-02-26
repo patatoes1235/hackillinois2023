@@ -11,10 +11,11 @@ const SearchBar = ({setResults}) => {
 		//
 		//see example below
 
-		//let response = await axios.get('/api/search', {
-		//	keyword: keywords,
-		//	getAll: false
-		//});
+		let response = await axios.get('/api/search', {
+			params: {
+			keyword: keywords,
+			getAll: false
+		}});
 
 		const test = [{
 			title: "Hurray",
@@ -25,7 +26,7 @@ const SearchBar = ({setResults}) => {
 			content: "yayayayayay"
 		}];
 
-		setResults(test);
+		setResults(response.data);
 	}
 
 	const handleKeyUp = (ev) => {
