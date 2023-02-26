@@ -16,10 +16,10 @@ import Toolbar from './toolbar';
 //   })
 //     .then((res) => res.json())
 //     .then((json) => json.data);
-// const fetcher = (query) => 
-// 	fetch('/api/hello', 
+// const fetcher = (query) =>
+// 	fetch('/api/hello',
 // 	{
-// 		method: 'GET', 
+// 		method: 'GET',
 // 		headers: {
 // 			'Content-type': 'application/json',
 // 		},
@@ -67,13 +67,14 @@ const Textbox = () => {
 			title, content
 		}).then((res) => {
 			console.log(res);
+			setTitle("");
+			setContent("");
 		}).catch((err) => {
 			console.log(err);
 		});
 	}
 
 	const cancel = () => {
-		//todo remove, replace with commented out line below
 		location.href = "/";
 		// axios.get('/api/search', {
 		// 	params: {
