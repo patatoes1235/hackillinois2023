@@ -74,16 +74,16 @@ const Textbox = () => {
 
 	const cancel = () => {
 		//todo remove, replace with commented out line below
-		//location.href = "/";
-		axios.get('/api/search', {
-			params: {
-			keyword: "Kenny",
-			getAll: false
-		}}).then((res) => {
-			console.log(res);
-		}).catch((err) => {
-			console.log(err);
-		});
+		location.href = "/";
+		// axios.get('/api/search', {
+		// 	params: {
+		// 	keyword: "Kenny",
+		// 	getAll: false
+		// }}).then((res) => {
+		// 	console.log(res);
+		// }).catch((err) => {
+		// 	console.log(err);
+		// });
 	}
 
 	return (

@@ -10,6 +10,7 @@ const prisma_s = new PrismaClient({ log: ['query', 'info'] });
 console.log(prisma_s.posts);
 
 async function getAll() {
+  console.log("GET ALL CALLED");
   const allUsers = await prisma_s.posts.findMany({
     where: {
       user_id: {
@@ -20,19 +21,20 @@ async function getAll() {
   return allUsers;
 }
 async function search(term) {
-  console.log(term);
+  console.log("TERM: ", term);
   const toReturn = await prisma_s.posts.findMany({
     where: {
       OR: [{title: {
-                contains: {term}
+                contains: term
               }
             },
             {content: {
-                contains: {term}
+                contains: term
               }
             }]
     }
   });
+  console.log("SEARCH CALLED ", toReturn);
   return toReturn;
 }
 
@@ -66,26 +68,17 @@ export default function handler(req, res) {
     });
   } 
   if (req.method === 'get') {
-    console.log("KEYWORD: ", req);
-    if (!req.query.getAll) {
+    console.log("KEYWORD: ", req.query.getAll);
+      console.log("IF CALLED");
       return new Promise((resolve, reject)=> {
         search(req.query.keyword).then((out) => {
         res.status(201).json(out);
         resolve();
       }).catch(error => { 
-        res.status(406).json(error);
-      });
-    });
-    } else {
-      return new Promise((resolve, reject)=> {
-        getAll().then((out) => {
-        res.status(201).json(out);
+        res.status(405).json(error);
         resolve();
-      }).catch(error => { 
-        res.status(406).json(error);
       });
     });
-    }
   } 
   res.status(404).json({Text: "HTTP req. not valid"});
 }

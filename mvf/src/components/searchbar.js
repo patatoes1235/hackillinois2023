@@ -10,12 +10,13 @@ const SearchBar = ({setResults}) => {
 		//w/ keys title, content (do not need to remove excess keys)
 		//
 		//see example below
-
+		console.log("SEARCH CALLED \n\n\n", keywords)
 		let response = await axios.get('/api/search', {
 			params: {
 			keyword: keywords,
 			getAll: false
 		}});
+		console.log(response.data);
 
 		const test = [{
 			title: "Hurray",
