@@ -1,31 +1,51 @@
 import {useState} from "react";
 import {Search} from "react-bootstrap-icons";
+import axios from "axios";
 
 const SearchBar = ({setResults}) => {
 	const [keywords, setKeywords] = useState("");
 
-	const search = () => {
-		//todo search db for keywords
-		setResults(keywords); // replace "keywords" with search results
+	const search = async () => {
+		//todo replace "keywords" with response, as array of objects
+		//w/ keys title, content (do not need to remove excess keys)
+		//
+		//see example below
+		console.log("SEARCH CALLED \n\n\n", keywords)
+		let response = await axios.get('/api/search', {
+			params: {
+			keyword: keywords,
+			getAll: false
+		}});
+		console.log(response.data);
+
+		const test = [{
+			title: "Hurray",
+			content: `Search for "${keywords}" successful`,
+			excessKeys: "Don't care"
+		}, {
+			title: "This is another post",
+			content: "yayayayayay"
+		}];
+
+		setResults(response.data);
 	}
 
 	const handleKeyUp = (ev) => {
-		//todo consider searching as the user types, without waiting for enter?
-		if (ev.key == "Enter")
+		if (ev.key === "Enter")
 			search();
 	}
 
 	return (
-		<div>
+		<div className="search-container container-fluid w-75 mt-5">
 		    <input
     			type="text"
     			placeholder="Search..."
     			value={keywords}
     			onChange={(ev) => setKeywords(ev.target.value)}
     			onKeyUp={handleKeyUp}
-			    style={{padding: "2px", margin: "10px", marginLeft: "40px"}}
+			    className="searchbar"
     		/>
-			<Search size={20}/>
+			<Search size={20} style={{width: "50px"}} onClick={search}/>
 		</div>
 	)
 }
