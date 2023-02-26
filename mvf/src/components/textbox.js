@@ -16,10 +16,10 @@ import Toolbar from './toolbar';
 //   })
 //     .then((res) => res.json())
 //     .then((json) => json.data);
-// const fetcher = (query) => 
-// 	fetch('/api/hello', 
+// const fetcher = (query) =>
+// 	fetch('/api/hello',
 // 	{
-// 		method: 'GET', 
+// 		method: 'GET',
 // 		headers: {
 // 			'Content-type': 'application/json',
 // 		},
@@ -43,6 +43,7 @@ const ReactQuill = dynamic(
 
 const Textbox = () => {
 	const [title, setTitle] = useState('');
+	const [contact, setContact] = useState('');
 	const [content, setContent] = useState('');
 	const quill = useRef();
 
@@ -64,18 +65,18 @@ const Textbox = () => {
 
 	const post = () => {
 		axios.post('/api/search', {
-			title, content
+			title, content, contact
 		}).then((res) => {
 			console.log(res);
 			setTitle("");
 			setContent("");
+			setContact("");
 		}).catch((err) => {
 			console.log(err);
 		});
 	}
 
 	const cancel = () => {
-		//todo remove, replace with commented out line below
 		location.href = "/";
 		// axios.get('/api/search', {
 		// 	params: {
@@ -114,6 +115,13 @@ const Textbox = () => {
 					forwardedRef={quill}
 				/>
 				<div className="col w-100">
+					<input
+						className="h-100 float-right"
+						type="text"
+						placeholder="Add your contact info"
+						value={contact}
+						onChange={(ev) => setContact(ev.target.value)}
+					/>
 					<Button className="float-right mx-2 post" style={{float: "right"}} onClick={post}>Post</Button>
 					<Button className="float-right mx-2 cancel" style={{float: "right"}} onClick={cancel}>Cancel</Button>
 				</div>

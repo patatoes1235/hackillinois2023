@@ -12,4 +12,5 @@ model posts {
   post_id Int     @id
   title   String?
   content String?
+  contact String?
 }

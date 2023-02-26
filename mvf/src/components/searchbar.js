@@ -6,26 +6,12 @@ const SearchBar = ({setResults}) => {
 	const [keywords, setKeywords] = useState("");
 
 	const search = async () => {
-		//todo replace "keywords" with response, as array of objects
-		//w/ keys title, content (do not need to remove excess keys)
-		//
-		//see example below
-		console.log("SEARCH CALLED \n\n\n", keywords)
 		let response = await axios.get('/api/search', {
 			params: {
 			keyword: keywords,
 			getAll: false
 		}});
 		console.log(response.data);
-
-		const test = [{
-			title: "Hurray",
-			content: `Search for "${keywords}" successful`,
-			excessKeys: "Don't care"
-		}, {
-			title: "This is another post",
-			content: "yayayayayay"
-		}];
 
 		setResults(response.data);
 	}

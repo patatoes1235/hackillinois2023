@@ -38,13 +38,14 @@ async function search(term) {
   return toReturn;
 }
 
-async function write(title, content) {
+async function write(title, content, contact) {
   let obj = {
     data: {
       user_id: Math.floor(Math.random()*79),
       title: title,
       post_id: Math.floor(Math.random()*9575),
       content: content,
+      contact: contact,
     },
   };
   console.log("\n\n DATA: ", obj);
@@ -58,7 +59,7 @@ export default function handler(req, res) {
   req.method = req.method.toLowerCase();
   if (req.method === 'post') {
     return new Promise((resolve, reject)=> {
-      write(req.body.title, req.body.content).then(response=>{
+      write(req.body.title, req.body.content, req.body.contact).then(response=>{
         res.status(200).json({Sucess: "Sucess"});
         resolve();
       })
