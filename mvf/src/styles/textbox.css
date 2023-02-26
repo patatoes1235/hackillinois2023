@@ -1,4 +1,7 @@
 /* textbox toolbar styling */
+.ql-editor {
+    min-height: 30vh;
+}
 .material-icons {
     color: #444444;
     font-size: 18px;
