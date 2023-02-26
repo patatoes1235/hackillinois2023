@@ -1,8 +1,11 @@
+import {useState} from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import dynamic from 'next/dynamic';
+const DarkReader = dynamic(() => import('react-darkreader'), {ssr: false});
 
-function NavBar() {
+function NavBar({darkmode, setDarkmode}) {
     return (
     <Navbar expand="lg">
       {/* <Container className="w-100 float-left"> */}
@@ -15,6 +18,7 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
       {/* </Container> */}
+	    <DarkReader isDark={darkmode} onChange={(enabled) => {setDarkmode(enabled)}}/>
     </Navbar>
     )
 }
