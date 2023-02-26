@@ -28,6 +28,10 @@ body * {
     font-size: 1.4em;
     padding-bottom: 10px;
 }
+.post-subtitle {
+    font-style: italic;
+    padding-bottom: 10px;
+}
 .post-content.ql-editor {
     min-height: initial;
     padding: 0;
