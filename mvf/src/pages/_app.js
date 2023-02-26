@@ -6,11 +6,11 @@ import '../styles/textbox.css';
 
 function App({Component, pageProps}) {
   return (
-    <div className="App">
+    <div className="App w-100 h-100">
       <div>
         <NavBar />
       </div>
-      <div>
+      <div className="w-100 h-100">
         <Component {...pageProps} />
       </div>
     </div>

@@ -37,17 +37,23 @@ const Textbox = () => {
 	}
 
 	return (
-		<div className="container w-100">
-			<div className="col w-75 border border-primary justify-content-center">
-				<input
-					type="text"
-					placeholder="Add a post title"
-					value={title}
-					onChange={(ev) => setTitle(ev.target.value)}
-				/>
-				<br/><br/>
+		<div className="container-fluid w-75 mt-5">
+			<div className="col w-100 justify-content-center my-2">
+				<div className="row w-100 my-2 ">
+					<div className="col-4 mb-2">
+						<input
+							className="w-100 p-2"
+							type="text"
+							placeholder="Add a post title"
+							value={title}
+							onChange={(ev) => setTitle(ev.target.value)}
+							style={{fontWeight: "bold", fontSize: "1.4em"}}
+						/>
+					</div>
+				</div>
 				<Toolbar/>
 				<ReactQuill
+					className="my-2 h-100"
 					theme="snow"
 					modules={modules}
 					formats={formats}
@@ -55,8 +61,10 @@ const Textbox = () => {
 					value={text}
 					onChange={setText}
 				/>
-				<Button onClick={cancel}>Cancel</Button>
-				<Button onClick={post}>Post</Button>
+				<div className="col w-100">
+					<Button className="float-right mx-2" style={{float: "right"}} onClick={post}>Post</Button>
+					<Button className="float-right mx-2" style={{float: "right"}} onClick={cancel}>Cancel</Button>
+				</div> 
 			</div>
 		</div>
 	);

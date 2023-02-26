@@ -4,8 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function NavBar() {
     return (
-    <Navbar bg="light" expand="lg">
-      <Container>
+    <Navbar bg="light" expand="lg" className="mx-4">
+      {/* <Container className="w-100 float-left"> */}
         <Navbar.Brand href="/">MVF Framework</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -14,7 +14,7 @@ function NavBar() {
             <Nav.Link href="/post">Post</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      {/* </Container> */}
     </Navbar>
     )
 }
