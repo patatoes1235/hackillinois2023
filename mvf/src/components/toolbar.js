@@ -53,7 +53,7 @@ const Toolbar = ({quill}) => {
 	}
 
 	return (
-		<div className="toolbar-container">
+		<span className="toolbar-container">
 			<div id="toolbar" ref={toolbarRef}>
 			    <span className="ql-formats">
 			      <button className="tooltipped" title="undo" onClick={undo}>
@@ -95,7 +95,7 @@ const Toolbar = ({quill}) => {
 			<button className={`expand-button ${!showExpand && 'hidden'}`} onClick={() => setExpanded(!expanded)}>
 				{expanded ? <CaretUp size={20}/> : <CaretDown size={20}/>}
 			</button>
-		</div>
+		</span>
 	);
 };
 

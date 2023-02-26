@@ -16,16 +16,16 @@ const SearchBar = ({setResults}) => {
 	}
 
 	return (
-		<div>
+		<div className="search-container container-fluid w-75 mt-5">
 		    <input
     			type="text"
     			placeholder="Search..."
     			value={keywords}
     			onChange={(ev) => setKeywords(ev.target.value)}
     			onKeyUp={handleKeyUp}
-			    style={{padding: "4px", margin: "10px", marginLeft: "40px"}}
+			    className="searchbar"
     		/>
-			<Search size={20}/>
+			<Search size={20} style={{width: "50px"}} onClick={search}/>
 		</div>
 	)
 }

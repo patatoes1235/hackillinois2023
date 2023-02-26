@@ -43,8 +43,8 @@ const Textbox = () => {
 		// todo upload to db
 		// title is a simple string
 		// content is an HTML string
-		console.log(title);
-		console.log(content);
+		//console.log(title);
+		//console.log(content);
 
 		axios.post('/api/search', {
 			title, content
@@ -57,7 +57,7 @@ const Textbox = () => {
 
 	const cancel = () => {
 		// todo go back to previous page
-		console.log('return');
+		//console.log('return');
 
 		//temp
 		axios.get('/api/search', {
@@ -77,7 +77,6 @@ const Textbox = () => {
 					<div className="col-4 mb-2">
 						<input
 							className="w-100 post-title"
-							style={{padding: "0.5em", paddingLeft: ".75em"}}
 							type="text"
 							placeholder="Add a post title"
 							value={title}

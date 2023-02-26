@@ -2,6 +2,23 @@ body * {
     border-radius: 5px;
 }
 
+.navbar {
+    background-color: #ccc;
+    width: 100%;
+    padding: .2em .8em;
+    border-radius: 0;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchbar {
+    width: 80%;
+    border-color: black;
+}
+
 .post-container {
     margin: 30px;
     padding: 20px;
@@ -15,6 +32,21 @@ body * {
     min-height: initial;
     padding: 0;
 }
+.partial-hide {
+    max-height: 150px;
+    overflow-y: clip;
+    position: relative;
+}
+.partial-hide:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #ffffff00 75%, #ffffff);
+}
+
 .bordered {
     border: 1px solid black;
     border-radius: 5px;
@@ -23,6 +55,7 @@ body * {
 /* textbox toolbar styling */
 input {
     border: 1px solid #ccc;
+    padding: 0.5em 0.5em 0.5em .75em;
 }
 .ql-editor {
     min-height: 30vh;
