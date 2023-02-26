@@ -2,7 +2,7 @@ import Textbox from '../components/textbox';
 // import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from '../components/navbar';
-import '../styles/textbox.css';
+import '../styles/styles.css';
 
 // Fetch all posts (in /pages/api/posts.ts)
 
