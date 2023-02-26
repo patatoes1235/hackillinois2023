@@ -9,7 +9,7 @@ datasource db {
 
 model posts {
   user_id Int
-  title   String?
   post_id Int     @id
+  title   String?
   content String?
 }

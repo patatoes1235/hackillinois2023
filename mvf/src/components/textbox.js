@@ -114,8 +114,8 @@ const Textbox = () => {
 					forwardedRef={quill}
 				/>
 				<div className="col w-100">
-					<Button className="float-right mx-2" style={{float: "right"}} onClick={post}>Post</Button>
-					<Button className="float-right mx-2" style={{float: "right"}} onClick={cancel}>Cancel</Button>
+					<Button className="float-right mx-2 post" style={{float: "right"}} onClick={post}>Post</Button>
+					<Button className="float-right mx-2 cancel" style={{float: "right"}} onClick={cancel}>Cancel</Button>
 				</div>
 			</div>
 		</div>
