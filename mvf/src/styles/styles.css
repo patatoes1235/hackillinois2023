@@ -1,4 +1,29 @@
+body * {
+    border-radius: 5px;
+}
+
+.post-container {
+    margin: 30px;
+    padding: 20px;
+}
+.post-title {
+    font-weight: bold;
+    font-size: 1.4em;
+    padding-bottom: 10px;
+}
+.post-content.ql-editor {
+    min-height: initial;
+    padding: 0;
+}
+.bordered {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 /* textbox toolbar styling */
+input {
+    border: 1px solid #ccc;
+}
 .ql-editor {
     min-height: 30vh;
 }
@@ -70,6 +95,6 @@
     overflow: visible;
     font-size: .85em;
 }
-.quill img {
+.ql-editor img {
     width: 40%;
 }

@@ -11,7 +11,7 @@ const SearchBar = ({setResults}) => {
 
 	const handleKeyUp = (ev) => {
 		//todo consider searching as the user types, without waiting for enter?
-		if (ev.key == "Enter")
+		if (ev.key === "Enter")
 			search();
 	}
 
@@ -23,7 +23,7 @@ const SearchBar = ({setResults}) => {
     			value={keywords}
     			onChange={(ev) => setKeywords(ev.target.value)}
     			onKeyUp={handleKeyUp}
-			    style={{padding: "2px", margin: "10px", marginLeft: "40px"}}
+			    style={{padding: "4px", margin: "10px", marginLeft: "40px"}}
     		/>
 			<Search size={20}/>
 		</div>

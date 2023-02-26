@@ -19,7 +19,7 @@ const ReactQuill = dynamic(
 
 const Textbox = () => {
 	const [title, setTitle] = useState('');
-	const [text, setText] = useState('');
+	const [content, setContent] = useState('');
 	const quill = useRef();
 
 	const modules = {
@@ -41,9 +41,9 @@ const Textbox = () => {
 	const post = () => {
 		// todo upload to db
 		// title is a simple string
-		// text is an HTML string
+		// content is an HTML string
 		console.log(title);
-		console.log(text);
+		console.log(content);
 	}
 
 	const cancel = () => {
@@ -54,15 +54,15 @@ const Textbox = () => {
 	return (
 		<div className="container-fluid w-75 mt-5">
 			<div className="col w-100 justify-content-center my-2">
-				<div className="row w-100 my-2 ">
+				<div className="row w-100 my-2">
 					<div className="col-4 mb-2">
 						<input
-							className="w-100 p-2"
+							className="w-100 post-title"
+							style={{padding: "0.5em", paddingLeft: ".75em"}}
 							type="text"
 							placeholder="Add a post title"
 							value={title}
 							onChange={(ev) => setTitle(ev.target.value)}
-							style={{fontWeight: "bold", fontSize: "1.4em"}}
 						/>
 					</div>
 				</div>
@@ -73,14 +73,14 @@ const Textbox = () => {
 					modules={modules}
 					formats={formats}
 					placeholder={"Write post here"}
-					value={text}
-					onChange={setText}
+					value={content}
+					onChange={setContent}
 					forwardedRef={quill}
 				/>
 				<div className="col w-100">
 					<Button className="float-right mx-2" style={{float: "right"}} onClick={post}>Post</Button>
 					<Button className="float-right mx-2" style={{float: "right"}} onClick={cancel}>Cancel</Button>
-				</div> 
+				</div>
 			</div>
 		</div>
 	);
