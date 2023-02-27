@@ -8,9 +8,9 @@ datasource db {
 }
 
 model posts {
-  user_id Int
   post_id Int     @id
-  title   String?
+  user_id Int
   content String?
+  title   String?
   contact String?
 }

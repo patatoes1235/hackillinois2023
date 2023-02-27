@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@prisma/client": "^4.10.1",
-    "prisma": "^4.10.1",
     "react-bootstrap-icons": "^1.10.2"
+  },
+  "devDependencies": {
+    "prisma": "^4.10.1"
   }
 }
