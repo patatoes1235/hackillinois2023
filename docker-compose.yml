@@ -12,6 +12,8 @@ services:
       POSTGRES_USER: admin
     ports:
       - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     networks:
       - stack
     command: -c shared_preload_libraries='pg_stat_statements' -c pg_stat_statements.max=10000 -c pg_stat_statements.track=all -c track_activity_query_size=2048
@@ -30,4 +32,4 @@ services:
 networks:
   stack: {}
 volumes:
-  filebeat: {}
+  pgdata:
