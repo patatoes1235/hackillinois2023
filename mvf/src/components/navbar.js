@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import dynamic from 'next/dynamic';
+import Link from "next/link";
 const DarkReader = dynamic(() => import('react-darkreader'), {ssr: false});
 
 function NavBar({darkmode, setDarkmode}) {
@@ -13,8 +14,9 @@ function NavBar({darkmode, setDarkmode}) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/post">Post</Nav.Link>
+              <Link href="/" className="nav-link">Home</Link>
+              <Link href="/post" className="nav-link">Post</Link>
+
           </Nav>
         </Navbar.Collapse>
       {/* </Container> */}
