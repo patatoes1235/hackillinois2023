@@ -14,6 +14,7 @@ export default function handler(req, res) {
     }
   }
   prisma.users.create(obj);
+  res.status(200).json({Text: "SUCCESS"});
 }
 // function handler(req, res) {
 
