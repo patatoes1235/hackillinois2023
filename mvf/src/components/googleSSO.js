@@ -1,9 +1,16 @@
 import Script from 'next/script'
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google';
 import { useRouter } from 'next/router';
+import axios from "axios";
 
 const handleCredentialResponse = (response) => {
-  
+  axios.post('/api/signin', {
+    response
+  }).then((res) => {
+    console.log(res);
+  }).catch((err) => {
+    console.log(err);
+  });
   console.log("Encoded JWT ID token: " + response.credential);
 };
 const signin = function () {
@@ -30,15 +37,15 @@ function GoogleSSO() {
 //   }}
 // />
   <div>
-      {/* <div className="root"
+      <div className="root"
         id="buttonDiv"
         data-type="icon"
         data-shape="circle"
         data-theme="outline"
         data-text="signin_with"
         data-size="large"
-        onClick={signin}>google button</div>  */}
-
+        onClick={signin}>google button</div> 
+{/* 
       <div id="g_id_onload"
         data-client_id="651818466301-l0vv3o7h1qa0et26c7lue8ecdhd1j90o.apps.googleusercontent.com"
         data-context="signin"
@@ -52,8 +59,8 @@ function GoogleSSO() {
         data-theme="outline"
         data-text="signin_with"
         data-size="large">
-      </div>
-      <span onLoad={signin}></span>
+      </div> */}
+      {/* <span onLoad={signin}></span> */}
   </div>
   );
 }

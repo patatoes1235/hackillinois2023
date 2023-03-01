@@ -5,7 +5,7 @@ import Textbox from '../components/textbox';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from '../components/navbar';
 import '../styles/styles.css';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+// import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // Fetch all posts (in /pages/api/posts.ts)
 
