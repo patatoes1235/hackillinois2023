@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import dynamic from 'next/dynamic';
 import Link from "next/link";
+import GoogleSSO from "./googleSSO";
 const DarkReader = dynamic(() => import('react-darkreader'), {ssr: false});
 
 function NavBar({darkmode, setDarkmode}) {
@@ -21,6 +22,7 @@ function NavBar({darkmode, setDarkmode}) {
         </Navbar.Collapse>
       {/* </Container> */}
 	    <DarkReader isDark={darkmode} onChange={(enabled) => {setDarkmode(enabled)}}/>
+      <GoogleSSO />
     </Navbar>
     )
 }
