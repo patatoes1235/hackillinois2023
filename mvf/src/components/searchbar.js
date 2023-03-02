@@ -8,29 +8,29 @@ const SearchBar = ({setResults}) => {
 	const search = async () => {
 		let response = await axios.get('/api/search', {
 			params: {
-			keyword: keywords,
-			getAll: false
-		}});
+				keyword: keywords,
+				getAll: false
+			}});
 		console.log(response.data);
 
 		setResults(response.data);
 	}
 
 	const handleKeyUp = (ev) => {
-		if (ev.key === "Enter")
+		if (ev.key === "Enter") //simply comment this line out
 			search();
 	}
 
 	return (
 		<div className="search-container container-fluid w-75 mt-5">
-		    <input
-    			type="text"
-    			placeholder="Search..."
-    			value={keywords}
-    			onChange={(ev) => setKeywords(ev.target.value)}
-    			onKeyUp={handleKeyUp}
-			    className="searchbar"
-    		/>
+			<input
+				type="text"
+				placeholder="Search..."
+				value={keywords}
+				onChange={(ev) => setKeywords(ev.target.value)}
+				onKeyUp={handleKeyUp}
+				className="searchbar"
+			/>
 			<Search size={20} style={{width: "50px"}} onClick={search}/>
 		</div>
 	)

@@ -14,7 +14,3 @@ model posts {
   content String?
   contact String?
 }
-
-model users {
-  user_id String @id
-}
