@@ -10,7 +10,11 @@ datasource db {
 model posts {
   post_id Int     @id
   user_id Int
-  content String?
   title   String?
+  content String?
   contact String?
+}
+
+model users {
+  user_id String @id
 }

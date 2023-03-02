@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 import {Button} from 'react-bootstrap';
 import Toolbar from './toolbar';
+import { useRouter } from "next/router";
 // import useSwr from 'swr';
 
 // const poster = (query) =>
@@ -46,6 +47,7 @@ const Textbox = () => {
 	const [contact, setContact] = useState('');
 	const [content, setContent] = useState('');
 	const quill = useRef();
+	const router = useRouter();
 
 	const modules = {
 		toolbar: {
@@ -77,7 +79,7 @@ const Textbox = () => {
 	}
 
 	const cancel = () => {
-		location.href = "/";
+		router.push('/')
 		// axios.get('/api/search', {
 		// 	params: {
 		// 	keyword: "Kenny",
