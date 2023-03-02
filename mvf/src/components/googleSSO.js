@@ -2,6 +2,7 @@ import Script from 'next/script'
 // import { GoogleLogin } from '@react-oauth/google';
 import { useRouter } from 'next/router';
 import axios from "axios";
+import { useEffect } from 'react';
 
 const handleCredentialResponse = (response) => {
   axios.post('/api/signin', {
@@ -13,20 +14,19 @@ const handleCredentialResponse = (response) => {
   });
   console.log("Encoded JWT ID token: " + response.credential);
 };
-const signin = function () {
+
+function GoogleSSO() {
+  useEffect(()=>{
     console.log("ONLOAD COMPLETE");
     google.accounts.id.initialize({
     client_id: "651818466301-l0vv3o7h1qa0et26c7lue8ecdhd1j90o.apps.googleusercontent.com",
     callback: handleCredentialResponse
-  })
+  });
   google.accounts.id.renderButton(
     document.getElementById("buttonDiv"),
     { theme: "outline", size: "large" }  // customization attributes
   );
-}
-
-function GoogleSSO() {
-  
+  }, []);
   return (
 //     <GoogleLogin
 //   onSuccess={credentialResponse => {
@@ -36,7 +36,9 @@ function GoogleSSO() {
 //     console.log('Login Failed');
 //   }}
 // />
+
   <div>
+          <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive" async defer />
       <div className="root"
         id="buttonDiv"
         data-type="icon"
@@ -44,7 +46,7 @@ function GoogleSSO() {
         data-theme="outline"
         data-text="signin_with"
         data-size="large"
-        onClick={signin}>google button</div> 
+        >google button</div> 
 {/* 
       <div id="g_id_onload"
         data-client_id="651818466301-l0vv3o7h1qa0et26c7lue8ecdhd1j90o.apps.googleusercontent.com"
