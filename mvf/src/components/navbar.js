@@ -11,7 +11,7 @@ function NavBar({darkmode, setDarkmode}) {
     return (
     <Navbar expand="lg">
       {/* <Container className="w-100 float-left"> */}
-        <Navbar.Brand href="/">Multi-Vendor Framework</Navbar.Brand>
+        <Navbar.Brand><Link href="/" className="nav-link" >Multi-Vendor Framework </Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
