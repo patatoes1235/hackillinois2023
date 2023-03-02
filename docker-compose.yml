@@ -1,9 +1,9 @@
-version: '3.7'
+version: '3.8'
 
 services:
 
   db:
-    image: postgres:10.11
+    image: postgres:15.2
     container_name: database
     hostname: db
     restart: always
@@ -19,10 +19,10 @@ services:
     command: -c shared_preload_libraries='pg_stat_statements' -c pg_stat_statements.max=10000 -c pg_stat_statements.track=all -c track_activity_query_size=2048
 
   pgAdmin:
-    image: dpage/pgadmin4:4.15
+    image: dpage/pgadmin4:6.20
     container_name: pgAdmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: "admin@local.local"
+      PGADMIN_DEFAULT_EMAIL: "kasetesting@gmail.com"
       PGADMIN_DEFAULT_PASSWORD: "password"
     ports:
       - 8081:80
