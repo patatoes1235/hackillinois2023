@@ -47,7 +47,15 @@ const Textbox = () => {
 	const [contact, setContact] = useState('');
 	const [content, setContent] = useState('');
 	const quill = useRef();
+	const quillEditor = quill.current.getEditor();
 	const router = useRouter();
+	// let quillDelta = new Delta();
+
+	// ReactQuill.on('text-change', function(delta, oldDelta, source) {
+	// 	console.log(delta, oldDelta, source);
+	// 	quillDelta = concat(delta);
+	// 	console.log(quillDelta);
+	// })
 
 	const modules = {
 		toolbar: {
@@ -66,6 +74,8 @@ const Textbox = () => {
 	];
 
 	const post = () => {
+		contents = quillEditor.getContents();
+		console.log(contents)
 		axios.post('/api/search', {
 			title, content, contact
 		}).then((res) => {
