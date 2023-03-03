@@ -54,12 +54,12 @@ async function write(title, content, contact) {
 }
 
 export default function handler(req, res) {
-  // console.log(req);
+  console.log(req);
   console.log(prisma_s.posts);
   req.method = req.method.toLowerCase();
   if (req.method === 'post') {
     return new Promise((resolve, reject)=> {
-      write(req.body.title, req.body.content, req.body.contact).then(response=>{
+      write(req.body.title, req.body.delta, req.body.contact).then(response=>{
         res.status(200).json({Sucess: "Sucess"});
         resolve();
       })

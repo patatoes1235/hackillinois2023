@@ -47,7 +47,6 @@ const Textbox = () => {
 	const [contact, setContact] = useState('');
 	const [content, setContent] = useState('');
 	const quill = useRef();
-	const quillEditor = quill.current.getEditor();
 	const router = useRouter();
 	// let quillDelta = new Delta();
 
@@ -74,10 +73,10 @@ const Textbox = () => {
 	];
 
 	const post = () => {
-		contents = quillEditor.getContents();
-		console.log(contents)
+		let delta = JSON.stringify(quill.current.getEditor().getContents());
+		console.log(delta)
 		axios.post('/api/search', {
-			title, content, contact
+			title, delta, contact
 		}).then((res) => {
 			console.log(res);
 			setTitle("");
