@@ -20,9 +20,28 @@ body * {
     border-color: black;
 }
 
+.card-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .post-container {
     margin: 30px;
     padding: 20px;
+}
+/*
+.card-view .post-container, .img-post {
+    flex: 0 1 40%;
+}
+ */
+.post-container {
+    flex: 0 1 40%;
+}
+.list-view .text-post {
+
+}
+.img-post img {
+    width: 100%;
 }
 .post-title {
     font-weight: bold;

@@ -1,9 +1,11 @@
-import Post from "./post";
+import PostItem from "./postitem";
 
-const Postlist = ({results}) => {
+const Postlist = ({results, display}) => {
 	return (
-		<div className="post-list container-fluid w-75 mt-5">
-			{results.map(({title, content, contact}, idx) => (<Post title={title} content={content} contact={contact} key={idx}/>))}
+		<div className={`post-list ${display}-view container-fluid w-75 mt-5`}>
+			{results.map((props, idx) => (
+				<PostItem key={idx} display={display} {...props}/>
+			))}
 		</div>
 	);
 }

@@ -22,10 +22,11 @@ const ReactQuill = dynamic(
 );
 
 const Textbox = () => {
-	const [title, setTitle] = useState('');
-	const [contact, setContact] = useState('');
-	const [content, setContent] = useState('');
-	const [flash, setFlash] = useState(false);
+	const [title, setTitle] = useState(''); // title of post
+	const [contact, setContact] = useState(''); // contact info - later will retrieve from profile
+	const [content, setContent] = useState(''); // body of post
+	const [imgUpload, setImgUpload] = useState(false); // target of file input
+	const [flash, setFlash] = useState(false); // flash message
 	const quill = useRef();
 	const router = useRouter();
 
@@ -46,13 +47,15 @@ const Textbox = () => {
 	];
 
 	const post = () => {
+		//console.log(content);
 		axios.post('/api/search', {
-			title, content, contact
+			title, content, contact, image: imgUpload.files[0] // currently only supports 1 img upload
 		}).then((res) => {
 			//console.log(res);
 			setTitle("");
 			setContent("");
 			setContact("");
+			imgUpload.value = null;
 			setFlash("Posted!");
 		}).catch((err) => {
 			//console.log(err);
@@ -86,11 +89,17 @@ const Textbox = () => {
 				/>
 				<div className="col w-100">
 					<input
-						className="h-100"
+						className="form-control d-inline-block w-25"
 						type="text"
 						placeholder="Add your contact info"
 						value={contact}
 						onChange={(ev) => setContact(ev.target.value)}
+					/>
+					<input
+						className="form-control d-inline-block w-50 mx-2"
+						type="file"
+						accept="image/*"
+						onChange={({target}) => setImgUpload(target)}
 					/>
 					<Button variant="success" className="float-right mx-2" onClick={post}>Post</Button>
 					<Button variant="danger" className="float-right mx-2" onClick={cancel}>Cancel</Button>

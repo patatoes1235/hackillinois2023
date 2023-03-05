@@ -4,7 +4,7 @@ CREATE TABLE "public"."User" (
   email VARCHAR(255) UNIQUE NOT NULL
 );
 
-CREATE TABLE "public"."Post" (
+CREATE TABLE "public"."Postitem" (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,
   "createdAt" TIMESTAMP NOT NULL DEFAULT now(),
