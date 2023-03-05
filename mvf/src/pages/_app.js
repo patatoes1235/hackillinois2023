@@ -1,10 +1,10 @@
 import {useState, useEffect} from "react";
 import Script from "next/script";
 import Textbox from '../components/textbox';
-// import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from '../components/navbar';
 import '../styles/styles.css';
+import '../styles/queries.css';
 // import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // Fetch all posts (in /pages/api/posts.ts)

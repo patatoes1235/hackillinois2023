@@ -1,0 +1,6 @@
+/* for smaller screens */
+@media screen and (max-width: 992px) { /* 800px) { */
+    .google-button {
+        margin: .4em 0;
+    }
+}

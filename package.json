@@ -1,8 +1,7 @@
 {
   "dependencies": {
     "@prisma/client": "^4.10.1",
-    "react-bootstrap-icons": "^1.10.2",
-    "react-flash-message": "^1.0.8"
+    "react-bootstrap-icons": "^1.10.2"
   },
   "devDependencies": {
     "prisma": "^4.10.1"

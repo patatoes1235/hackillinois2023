@@ -20,11 +20,10 @@ function NavBar({darkmode, setDarkmode}) {
 					<Link href="/post" className="nav-link">Post</Link>
 
 				</Nav>
+				<div className="google-button"> <GoogleSSO/> </div>
+				{/*<DarkReader isDark={darkmode} onChange={(enabled) => setDarkmode(enabled)} />*/}
 			</Navbar.Collapse>
 			{/* </Container> */}
-			<GoogleSSO />
-			<div style={{width: "1em"}}></div>
-			<DarkReader isDark={darkmode} onChange={(enabled) => setDarkmode(enabled)} />
 		</Navbar>
 	)
 }
